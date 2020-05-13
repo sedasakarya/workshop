@@ -1,49 +1,43 @@
 <?php
-ini_set('display_errors', 1); //0 to disable
-error_reporting(E_ALL); // ADD THIS TO HIDE NOTICES : & ~E_NOTICE
-# IF YOU DON'T WANT TO SEE ERRORS WRITE 0 OR 'OFF' INSTEAD OF 1.IT REWRITES THE INI FILE ABOUT ERRORS.
+ini_set('display_errors', 1); 
+error_reporting(E_ALL);
 
-# This part belongs to PHP. 
-# This bit of code will be executed before HTML.
-# A server language will ALWAYS be executed before a static content.
+// MY CUSTOM PRINT_R FUNCTION
 
-# CHECK IF GET KEY EXIST 'PAGE' EXIST ON LINE VARIANT:
+function show($arr){
+  echo '<pre>';
+  print_r($arr);
+  echo '</pre>';
+};
+
+
+# CHECK PAGE FROM URI (UNIQUE RESOURCE IDENTIFIER) IT IS ON TOP. 
 $page = isset($_GET['page']) ? $_GET['page'] : 'index'; #We get the HTML here.
-# echo $page;
 
-# CHECK IF GET KEY EXIST 'PAGE' EXIST:
-/*if(isset($_GET['page'])){
-  $page = $_GET['page'];
-}
-else {
-  $page = 'index';
-} */
 
-/*if(empty($page)){
-  $page = 'index';
-}; */
+// GRAB THE JSON CONTENT 
+$site_data_json = file_get_contents("site_data.json"); // Gets the file content
 
-# Using a variable inside a PHP string.
-#$name = "Sorin";
-#$using_double_quotes = "My name is $name and I'm here!";
-# echo $using_double_quotes;
+//Convert the json content into PHP array
+// Has 2 arguments. The json string AND the data type
+// true --> array 
+// false --> object It is default version. 
+$site_data = json_decode($site_data_json, true); // We decode it as an array.
 
-#$using_single_quotes = 'My name is '.$name.'  and voila!';
-#echo $using_single_quotes;
-# It doesn't see the variable with '' automaticly.
-# With dots we concatinate !!!!
+// We simplified the writing. It is like a shortcut of pages!!!
+$pages = $site_data['pages'];
+//show($pages['work']['title']);
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8">
-  <title>Where hardest stuff is possible</title>
-
+  <title><?php echo $pages[$page]['title'] ?></title> <!--page defines which page automaticly. index, contact or work.-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="How to use PHP to create a dynamic website">
-  <meta name="keywords" content="php,dynamic site,cool,raoul">
-  <meta name="author" content="Sorin Paun">
+  <meta name="description" content="<?php echo $site_data['description']; ?>"> <!--we can use print as well instead of echo.-->
+  <meta name="keywords" content="<?php echo $site_data['keyword']; ?>">
+  <meta name="author" content="<?php echo $site_data['author']; ?>">
 
   <link rel="icon" href="img/favicon.png">
 
@@ -75,9 +69,13 @@ else {
 
   <!-- CONTENT -->
   <main class="content">
-
+    
+    <!-- Main Title -->
+    <h1 class="main-title"><?php echo $pages[$page]['title'] ?></h1>
     <?php 
-    echo "<p>HELLO WORLD</p>";
+    // You could echo h1 here as well like below. Instead of creating HTML tag above.
+    // echo '<h1 class="main-title">'.$pages[$page]['title].'</h1>'
+    #echo "<p>HELLO WORLD</p>";
     # Include function 
     # Grab an external content methods :
     #include("html/index.html"); 
@@ -91,7 +89,7 @@ else {
 
     # Require once function
     # This will be ignored because we have already put it 
-    require_once("html/$page.html");
+    require_once("html/$page.html"); // It is like an echo by deafult.
     # In PHP, if you use variables with "", it is automaticly known.
     
     ?>

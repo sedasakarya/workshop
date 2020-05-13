@@ -1,0 +1,23 @@
+{
+ "global_title" : "The Heavy Metal Company",
+ "description"  : "How to use PHP to create a dynamic website",
+ "keywords"     : "php,powercoders,seda,etc",
+ "author"       : "Seda Sakarya",
+
+
+ "pages"        : {
+   "index": {
+     "title": "Where hardest stuff is possible",
+     "menu" : "HOME"
+   },
+   "work": {
+    "title": "A selection of latest project",
+    "menu" : "WORK"
+  },
+  "contact": {
+    "title": "Say Hello",
+    "menu" : "CONTACT"
+  }
+ }
+  
+}
