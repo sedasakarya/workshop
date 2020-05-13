@@ -1,0 +1,351 @@
+/* RESET - Reset browser defaults
+=====================================================*/
+/*#region RESET*/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+/* Box-sizing border-box by default*/
+html {
+	box-sizing: border-box;
+	font-size: 16px;
+}
+/*endregion*/
+
+
+
+
+/* LAYOUT
+=====================================================*/
+/* COMMON TAGS AND HELPER CLASSES
+--------------------------------------------*/
+/*#region*/
+body {
+	font: 1em/1.5 'Roboto', Helvetica, Arial, sans-serif;
+	background: #fff;
+	color: #000;
+	margin: 1em;
+	font-weight: 400;
+}
+
+h1 {
+	font-size: 3em;
+	text-align: center;
+	padding-bottom: 1rem;
+	margin-bottom: 4rem;
+	border-bottom: solid 0.5px #ccc;
+}
+
+button {
+	margin: 0;
+	padding: .5em 1em;
+	border: 0;
+	background: #f1f1f1;
+	font-size: 100%;
+	vertical-align: baseline;
+	font-family: inherit;
+	font-weight: inherit;
+	color: inherit;
+	cursor: pointer;
+	transition: background .3s ease, color .3s ease;
+}
+button:hover {
+	background: #999;
+	color: #fff;
+}
+
+button, input, textarea {
+	font-family: Roboto, sans-serif;
+	font-size: 1em;
+}
+
+textarea {
+	display: block;
+	width: 100%;
+}
+
+p {
+	margin-bottom: 1em;
+}
+
+a {
+	text-decoration: none;
+	transition: color .3s ease;
+}
+
+hr {
+	border: 0;
+	border-top: solid 0.5px #ccc;
+	margin: 2rem 0;
+}
+
+:focus {
+	outline: 0;
+}
+
+::placeholder {
+	color: #fc0;
+}
+
+
+/*HELPER CLASSES*/
+.row {
+	display: flex;
+	justify-content: flex-end;
+	margin: 0 auto 1.5em;
+}
+.flex {
+	display: flex;
+}
+.justify {
+	margin: auto;
+	justify-content: space-between;
+}
+
+.max-width {
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.hidden {
+	/* display: none; */
+	/* visibility: hidden; */
+	opacity: 0;
+}
+
+.hide {
+	display: none!important;
+}
+/*#endregion*/
+
+
+/* ADD TODO ROW
+--------------------------------------------*/
+.add-todo-row {
+	margin-bottom: .8em;
+}
+#add-todo {
+	display: block;
+	width: 100%;
+	padding: .6em;
+	font-size: 1.2em;
+}
+
+
+/* LIST
+--------------------------------------------*/
+/*#region LIST*/
+ul {
+	margin-bottom: 3em;
+	font-size: 1.2em;
+	font-weight: 400;
+
+	border-bottom: solid 1px #ccc;
+	padding-bottom: 3em;
+}
+
+ul li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: .3em .5em;
+	margin-bottom: .2em;
+	background: #f5f5f5;
+}
+
+
+/* MESSAGES
+--------------------------------------------*/
+/*#region*/
+#msg {
+	padding: .3em 0;
+	opacity: 1;
+	font-size: 1.2em;
+}
+
+#msg.error {
+	font-weight: 500;
+	color: red;
+}
+#msg.success {
+	color: green;
+}
+/*#endregion*/
+
+
+/* EDIT ZONE
+--------------------------------------------*/
+/*#region*/
+.row button {
+	background-color: #f1f1f1;
+	color: #333;
+	padding: .5em 1em;
+	cursor: pointer;
+	min-width: 130px;
+	margin-left: 5px;
+	transition: background-color .3s ease, color .3s ease;
+}
+li button {
+	min-width: 30px;
+	padding: .2em 0;
+	margin-left: 1em;
+	background-color: transparent;
+	margin-left: 0;
+}
+
+.row button:hover {
+	background-color: #ccc;
+	color: #000;
+}
+
+.row input {
+	border: solid 1px #ccc;
+	padding: .5em;
+}
+
+.row input::-webkit-input-placeholder {
+	font-weight: 300;
+	color: #d1d1d1;
+}
+
+.row input::-moz-placeholder {
+	font-weight: 300;
+	color: #d1d1d1;
+}
+
+.row .index {
+	max-width: 80px;
+	margin-right: 5px;
+}
+.row .text {
+	max-width: 200px;
+}
+.row .text.long {
+	max-width: 280px;
+}
+.row .M0 {
+	margin: 0;
+}
+/*#endregion*/
+
+
+
+
+
+
+
+/* ADMIN MESSAGES
+----------------------------------------*/
+/*MESSAGE WRAP*/
+.message {
+	position:fixed;
+	top: 0;
+ left:0; 
+ z-index:1000;
+ width:100%;
+ 
+ min-height:100vh; /*Template Header Height*/
+ padding:1em 1em 1.5em;
+ 
+ text-align:center;
+ line-height:1.5;
+ 
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ 
+	background-color: rgba(0,0,0,0.9);
+
+}
+.message.bottom {
+ bottom:0;
+}
+
+.message * {
+ font-size:inherit;
+ line-height:inherit;
+}
+.msg-content .msg-row,
+.msg-content .status-icon {
+ vertical-align:top;
+}
+
+.msg-content {
+ display:inline-block;
+ width:50%;
+ height:auto;
+ font-size:1.2em;
+ color:#000;
+ 
+ background:#fc0;
+}
+
+.msg-content b,
+.msg-content strong {
+ font-weight: 700;
+ font-family: inherit;
+}
+
+.msg-row {
+ display:inline-block;
+ line-height:1.4;
+ vertical-align:middle;
+}
+
+
+/*ICONS COMMON*/
+.message .icons {
+ display:block;
+ text-align:center;
+}
+.message .icons.inline {
+ display:inline-block;
+ margin:-2px 10px 0 0;
+ text-align:left;
+}
+
+
+/*SUCCESS ICON*/
+.message.success .status-icon {
+ font-size:1.1em;
+}
+
+
+/*PARTIAL SUCCESS ICONS*/
+.message.partial-success .icons {
+ display:block;
+ text-align:center;
+}
+.message.partial-success .status-icon {
+ margin-left:.5em;
+ margin-right:.5em; 
+}
+
+
+/*ERROR ICON*/
+.message.error .status-icon {
+ font-size:1.2em;
+ display:block;
+ background:none;
+}
+
+.message .status-icon.fa-check {
+ color:#477D20;
+}
+.message .status-icon.fa-warning {
+ color:#DC2221;
+}
+
+
+/*COLORS*/
+.message.info * {
+ color:#316DAC;
+}
+
+.message.error em {
+ color:inherit;
+}
+
+.message.error strong {
+ font-weight:600;
+ color:inherit;
+}

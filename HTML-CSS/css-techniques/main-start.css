@@ -1,0 +1,398 @@
+ /*	Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+-------------------------------------------------------------------------- */
+/*#region RESET*/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+
+/* Make box-sizing "border-box" as default */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+/*#endregion*/
+
+
+
+
+/* MAIN TAGS FORMATTING
+===================================================================================*/
+/*#region MAIN TAGS*/
+/* REFERENCE SIZE FOR FONTS
+ * We can use html{} ou :root{}
+----------------------------------------------*/
+html {
+  font-size: 20px;
+	scroll-behavior: smooth; /*optional*/
+}
+
+
+
+/* FONT - Default properties
+----------------------------------------------*/
+body,
+button,
+input,
+select,
+textarea {
+	font-family: 'Lato', sans-serif;
+	font-size: 1em;
+	font-weight: 300; /*this is a "light" weight*/
+	letter-spacing: 0.025em;
+	line-height: 1.6em;
+	color: #333;
+}
+
+
+/* TITLES
+----------------------------------------------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.75em;
+	margin-bottom: 1em; /*25.5px for the h1; 22px for the h2; 18px for the h3*/
+	text-transform: uppercase;
+}
+h1 {
+  font-size: 1.5em; /*150% of 17px = 25.5px*/
+	font-weight: 600; /*500 or 600 should be medium bold, 700 bold, 900 black*/
+	margin-bottom: 0;
+}
+h2 {
+  font-weight: 400;
+  font-size: 1.3em;
+	letter-spacing: 0.03em;
+}
+h3 {
+	font-size: 1.1em;
+	font-weight: 300; /* 300 light, 200 thin */
+}
+
+
+/* PARAGRAPHS
+----------------------------------------------*/
+p {
+	margin-bottom: 1em;
+	text-indent: 1em;
+}
+p::first-letter {
+	font-size: 4em; 
+	color: #8A2BE8;
+	font-family: sans-serif;
+}
+
+/* LINKS
+----------------------------------------------*/
+a {
+  text-decoration: none;
+	outline: none;
+	color: inherit; /*#3fb1a3*/
+}
+p a {
+	border-bottom: dotted 1px;
+	/*border : none; or 0 
+	border-top-width: 10px;
+	border-top-style: dotted
+	border-top-color: #fc0  */
+	transition: color 0.2s ease-in-out, 
+							border-color 0.2s ease-in-out, 
+							background-color 0.2s ease-in-out; /*IMPORTANT*/
+}
+p a:hover {
+	border-bottom-color: transparent;
+}
+
+
+/* STANDARD TAGS for bold
+----------------------------------------------*/
+strong, b {
+	font-weight: 400;
+}
+
+
+/* IMAGES
+----------------------------------------------*/
+img {
+	display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+/* FORM ELEMENTS
+----------------------------------------------*/
+input,
+select,
+textarea {
+  width: 200px;
+}
+label {
+  display: inline-block;
+	width: 100%;
+	min-width: 140px;
+  max-width: 15%;
+}
+textarea {
+	width: 50%;
+	height: 5em;
+	resize: vertical;
+}
+input[type="checkbox"],
+input[type="radio"] {
+	width: auto;
+}
+form p * {
+vertical-align: middle;
+}
+
+
+/* SELECTIONS, PLACEHOLDERS
+----------------------------------------------*/
+/*Document selection*/
+::selection {
+	background-color: #282e3e;
+	color:#fff;
+}
+
+/*Form elements placeholders*/
+::placeholder {
+	color:#ccc;
+}
+
+/*input:focus::placeholder   */
+/*#endregion*/
+
+
+
+
+/* HELPER CLASSES - Useful classes to speed up the design
+===================================================================================*/
+/*#region HELPER CLASSES*/
+/*Font & Texts*/
+.font300 {
+	font-weight: 300;
+} 
+.font400 {
+	font-weight: 400;
+}
+.font700 {
+	font-weight: 700;
+}
+
+.AC {
+	text-align: center;
+}
+
+/*Margins and Paddings*/
+.M0 {
+	margin: 0;
+}
+
+/*Rows and Columns*/
+.row {
+	display: flex;
+	justify-content: space-between;
+
+}
+/*.columns {
+	columns: 2;
+	column-gap: 10%;
+	column-width: 45%;
+} /* it works only with text not with logo and other things */
+.col-2 {
+	width: 45%; /* for width use % but for height use em */
+	background-color: #fc0;
+}
+.col-3 {
+	width: 30%;
+}
+
+/*Header with borders top-bottom helper*/
+.deco-title {
+	
+}
+
+/*Scale when hover helper*/
+.square a {
+	height: 30%;
+}
+.scale {
+	overflow: hidden;
+	border-radius: 50%;
+	border: solid 5px #000;
+}
+.scale img {
+	width: 150%;
+ 	transition: transform .3s ease;	
+}
+.scale img:hover {
+	transform: scale(1.2) rotate(10deg);	/*it rotates the image and makes it bigger or smaller*/
+
+}
+/*#endregion*/
+
+
+
+/* LAYOUT
+===================================================================================*/
+/*#region LAYOUT*/
+/* COMMON
+----------------------------------------------*/
+/*Header*/
+.top-header {
+	/* background-color: #fc0; */
+	padding: 1em 4%;
+	border-bottom: solid 1px #e5e5e5;
+	margin-bottom: 3em;
+}
+
+/*Main*/
+main {
+	max-width: 1024px;
+	margin: 0 auto 3em;
+}
+.main-header {
+	margin-bottom: 3em;
+}
+
+/*Sections*/
+section {
+	padding: 2em 4%;
+	background-color: #f5f5f5;
+	margin-bottom: 3em;
+}
+
+/* MENU
+--------------------------------------------------*/
+.menu li {
+	margin-left: 1em;
+}
+.menu a {
+	text-transform: uppercase;
+	padding: .5em 0;
+	font-size: .8em;
+	transition: all .3s ease;
+	border-top: solid 1px transparent;
+}
+.menu li.active:before { 
+	content: ""; /*IMPORTANT , :BEFORE AND :AFTER */
+	display: block;
+	height: 1px;
+	width: 30px;
+	background-color: #aaa;
+	margin: 0 auto;
+} 
+.menu a:hover,
+.menu .active {
+	color: #000;
+/*border-top: solid 1px transparent;*/
+	
+}
+
+
+
+/* NAV TRIGGERS FOR MOBILES
+-----------------------------------*/
+#nav-triggers {
+	display: none;
+}
+
+/*#endregion*/
+
+
+/* MEDIA QUERIES
+===================================================================================*/
+/*#region MEDIA QUERIES*/
+@media (max-width: 800px) {
+
+	/* Helper classes */
+	
+
+	/*LOGO*/
+	
+
+	/*Hide the nav*/
+	#main-nav {
+		display: none;
+	}
+
+	/*Nav triggers*/
+	#nav-triggers {
+		display: block;
+		position: relative;
+		z-index: 1;
+	}
+	#nav-triggers,
+	#nav-triggers a {
+		width: 44px; /*same size for every mobile device*/
+		height: 44px;
+		overflow: hidden; /* we hid the x of hamburger menu */
+		background-color: #fc0;
+	}
+	
+	#nav-triggers a {
+		display: flex;
+		justify-content: center;
+		background-color: #fc0;
+	}
+	
+	#nav-triggers img {
+		width: 60%;
+	}
+	.menu-is-open #open-menu{
+		display:none;
+	}
+
+	/* MOBILE NAV */
+.menu {
+	width: 100%;
+	max-width: 150px;
+	text-align: center;
+	background-color: #fc0;
+}
+.menu-is-open {
+	overflow: hidden;
+}
+#top-header {
+	margin-top: 2em;
+}
+#main-nav {
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.menu-is-open #main-nav {
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	display:block;
+	background-color: rgba(0, 0, 0, .8);
+}
+.menu.row {
+	display: block;
+}
+.menu li {
+	margin-left:0;
+}
+.menu a {
+	color: white;
+}
+}
+
+@media (max-width: 600px) {
+
+}
+
+@media (max-width: 480px) {
+
+}
+/*#endregion*/
