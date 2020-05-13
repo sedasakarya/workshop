@@ -1,4 +1,5 @@
 <?php
+// MANAGING ERRORS
 ini_set('display_errors', 1); 
 error_reporting(E_ALL);
 
@@ -12,21 +13,27 @@ function show($arr){
 
 
 # CHECK PAGE FROM URI (UNIQUE RESOURCE IDENTIFIER) IT IS ON TOP. 
-$page = isset($_GET['page']) ? $_GET['page'] : 'index'; #We get the HTML here.
+$page = isset($_GET['page']) ? $_GET['page'] : 'index'; 
 
 
 // GRAB THE JSON CONTENT 
-$site_data_json = file_get_contents("site_data.json"); // Gets the file content
+$site_data_json = file_get_contents("site_data.json");
 
-//Convert the json content into PHP array
-// Has 2 arguments. The json string AND the data type
-// true --> array 
-// false --> object It is default version. 
-$site_data = json_decode($site_data_json, true); // We decode it as an array.
+$site_data = json_decode($site_data_json, true);
 
 // We simplified the writing. It is like a shortcut of pages!!!
-$pages = $site_data['pages'];
-//show($pages['work']['title']);
+$pages = $site_data['pages']; //show($pages);
+
+# DYNAMIC MENU - FOREACH IS PERFECT FOR LOOPS
+$li = '';
+foreach ($pages as $key => $item) {
+  // ADD THIS TO THE $LI 
+  $active = ($key === $page) ? ' active' : '';
+  $li .= '<li class="menu-item'.$active.'"><a href="?page='.$key.'">'.$item['menu'].'</a></li>'; // .= is like += in JS
+};
+//show($li);
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,9 +65,7 @@ $pages = $site_data['pages'];
     <!-- Nav -->
     <nav class="nav">
       <ul class="menu">
-        <li class="menu-item"><a href="?page=index">HOME</a></li><!--? is key for variables. Page is something we made up-->
-        <li class="menu-item"><a href="?page=work">WORK</a></li>
-        <li class="menu-item"><a href="?page=contact">CONTACT</a></li>
+       <?php echo $li; ?> <!--We echoed our dynamic menu here.-->
       </ul>
     </nav>
 
@@ -73,24 +78,8 @@ $pages = $site_data['pages'];
     <!-- Main Title -->
     <h1 class="main-title"><?php echo $pages[$page]['title'] ?></h1>
     <?php 
-    // You could echo h1 here as well like below. Instead of creating HTML tag above.
-    // echo '<h1 class="main-title">'.$pages[$page]['title].'</h1>'
-    #echo "<p>HELLO WORLD</p>";
-    # Include function 
-    # Grab an external content methods :
-    #include("html/index.html"); 
     
-    # Include once function
-    # This will be ignored because we have already put it 
-    #include_once("html/index.html"); 
-
-    # Require function
-    #require("html/index.html");
-
-    # Require once function
-    # This will be ignored because we have already put it 
     require_once("html/$page.html"); // It is like an echo by deafult.
-    # In PHP, if you use variables with "", it is automaticly known.
     
     ?>
    
