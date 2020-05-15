@@ -27,9 +27,8 @@ $pages = $site_data['pages']; //show($pages);
 # DYNAMIC MENU - FOREACH IS PERFECT FOR LOOPS
 $li = '';
 foreach ($pages as $key => $item) {
-  // ADD THIS TO THE $LI 
   $active = ($key === $page) ? ' active' : '';
-  $li .= '<li class="menu-item'.$active.'"><a href="?page='.$key.'">'.$item['menu'].'</a></li>'; // .= is like += in JS
+  $a .= '<a class="uppercase'.$active.'" href="?page='.$key.'">'.$item['menu'].'</a>'; 
 };
 //show($li);
 
