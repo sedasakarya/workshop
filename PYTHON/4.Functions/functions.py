@@ -2,10 +2,10 @@
 ==================================================== """
 # Native functions like print...
 #print("whatever")
-# print("whatever", "and", "ever")
+#print("whatever", "and", "ever")
 
 age = 12
-# print("age is:", age)
+#print("age is:", age)
 #print("list\n", [1,2,3])
 #print("list", [1,2,3], sep=":", end=".") # Sep adds a seperation sign. End adds a sign at the end.
 

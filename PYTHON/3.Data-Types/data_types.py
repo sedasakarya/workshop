@@ -78,7 +78,7 @@ age = 27
 #phrase = name + " is 27 years old" # It works
 #phrase = name + " is " + age + " years old"
 #phrase = name + " is " + str(age) + " years old" # It works
-# phrase = f"{name} is {age} years old" # This is the BEST WAY !!! F is format.
+#phrase = f"{name} is {age} years old" # This is the BEST WAY !!! F is format.
 #phrase = "{} is {} years old. {}?".format(name, age, age) # It works too.
 #print(phrase)
 
